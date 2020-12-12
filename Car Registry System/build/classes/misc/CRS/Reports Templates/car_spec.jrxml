@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="car_spec" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="68ec5b37-f3a5-45f8-bb39-e2603225af81">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select
+C.id_car,maker,model,country,year_built,body_type,color,top_speed,price,photo,
+E.engine_model,size,power,torque
+from tbl_cars as
+C inner join tbl_engineModel as E
+on(C.id_engineModel = E.id_engineModel) where id_car = $P{id};]]>
+	</queryString>
+	<field name="id_car" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="maker" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="model" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="country" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="year_built" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="body_type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="color" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="top_speed" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="price" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="photo" class="java.io.InputStream">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="engine_model" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="size" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="power" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="torque" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="173" splitType="Stretch">
+			<staticText>
+				<reportElement x="224" y="66" width="116" height="41" uuid="a6c4f7bf-9a1c-46e8-aceb-0f18a8909d71"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Vehicle Specs]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="1cf78d88-0af3-45da-a849-01dbd506f6f8"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="0" width="160" height="66" uuid="054929f3-122b-4a14-8178-b1af4371e592"/>
+				<imageExpression><![CDATA[System.getProperty("user.home") + "\\Documents\\CRS\\Reports Templates\\logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="42" y="62" width="87" height="41" uuid="b443a4c3-c629-481d-bc44-fc51444fb803"/>
+				<textElement>
+					<font size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C R S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="124" width="57" height="20" uuid="8acaf10d-82f4-4fcd-942d-1d6469f5156f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Car ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="479" y="124" width="74" height="20" uuid="7ca6da06-328e-4d4e-a8f7-1371c90360e3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_car}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="422" y="145" width="63" height="20" uuid="b02831a7-d1c5-4e01-9a60-51253590f893"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Price : $]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="479" y="145" width="73" height="20" uuid="446ca5e8-c4cd-4eec-8ad4-7a638fc40265"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="375" y="23" width="164" height="101" uuid="0b9fd198-ca26-42d2-bd2d-3978df875ed5"/>
+				<imageExpression><![CDATA[$F{photo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="83" splitType="Stretch">
+			<rectangle>
+				<reportElement x="114" y="15" width="323" height="20" uuid="82d352de-11d0-4f47-9e21-1a29e2457dcb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="133" y="15" width="55" height="20" uuid="9cb92406-1164-4ffe-bf55-d83a84be5096"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Model :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="205" y="15" width="199" height="20" uuid="649d983b-3b4f-4037-af13-f46f0b741a00"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{model}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="195" splitType="Stretch">
+			<rectangle>
+				<reportElement x="42" y="15" width="483" height="84" uuid="9075db8d-41bf-4b45-b06d-d29e4b92e28d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="60" y="15" width="73" height="20" uuid="cd543cb7-495e-4494-9485-907394cf51e9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Car Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="77" y="48" width="37" height="20" uuid="f9fc0fcf-bc81-4687-91c0-72f3987b53d8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Maker :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="114" y="48" width="100" height="20" uuid="4d9abc5a-ba56-4889-90ef-e878f07762a6"/>
+				<textFieldExpression><![CDATA[$F{maker}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="70" y="68" width="59" height="20" uuid="4895f83d-a2e2-4e48-bc3d-896a013ea6a7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Country :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="115" y="68" width="73" height="20" uuid="e100cb07-da0e-4a10-bf28-9b9b6eb5d225"/>
+				<textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="224" y="48" width="34" height="20" uuid="c51a6258-b59a-444c-9993-51c35c313513"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Color :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="259" y="48" width="85" height="20" uuid="4cb836dc-a3cd-4baa-a170-aeaeefc39b85"/>
+				<textFieldExpression><![CDATA[$F{color}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="224" y="68" width="35" height="20" uuid="0f3b8829-d4b0-4881-972b-132b634f23a0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Year :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="259" y="68" width="51" height="20" uuid="68d95fff-cae7-4bf4-9bf6-ce00799383ba"/>
+				<textFieldExpression><![CDATA[$F{year_built}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="389" y="48" width="33" height="20" uuid="d1799377-5f85-4e07-9fbe-293a3ca57ca7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Body :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="422" y="48" width="73" height="20" uuid="02ee8895-453e-4f79-a68a-4bde75bf91db"/>
+				<textFieldExpression><![CDATA[$F{body_type}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<rectangle>
+				<reportElement x="42" y="18" width="483" height="79" uuid="ccc942e8-711a-4fbb-b886-bd4752fdce00"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="60" y="18" width="128" height="20" uuid="4137af1e-3e77-48f4-9926-e6b5fd628cc1"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Performance specs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="49" width="54" height="20" uuid="c9f91551-fff2-48d4-968a-6248e14cc632"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Engine :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="116" y="49" width="82" height="20" uuid="f97e8d74-be1b-455d-ac30-4b2e9cfd23b1"/>
+				<textFieldExpression><![CDATA[$F{engine_model}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="69" width="39" height="20" uuid="17009c68-01ca-4900-bf7c-ece4b12f81ed"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Size :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="115" y="69" width="56" height="20" uuid="4cee604c-574d-4e8c-9e18-0a3daa192323"/>
+				<textFieldExpression><![CDATA[$F{size}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="211" y="49" width="48" height="20" uuid="2ada9b06-35e3-42fa-bf22-bed59e62f196"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Power :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="260" y="49" width="51" height="20" uuid="de82a109-f504-4e26-a95d-a4055e6261d0"/>
+				<textFieldExpression><![CDATA[$F{power}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="211" y="69" width="49" height="20" uuid="de91523d-a4a2-4564-a835-6efa1b575e73"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Torque :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="260" y="69" width="51" height="20" uuid="7694699f-998b-4111-b170-6d2b7d35f521"/>
+				<textFieldExpression><![CDATA[$F{torque}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="423" y="49" width="74" height="20" uuid="710c042a-ea40-49b2-aae1-13fbce0dfceb"/>
+				<textFieldExpression><![CDATA[$F{top_speed}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="358" y="49" width="65" height="20" uuid="2f557101-b09c-4262-a959-205c5a5d2516"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Top Speed :]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="170" y="34" width="219" height="20" uuid="c3cd7f28-d0a5-4015-b9d0-5cdd141c6be8"/>
+				<text><![CDATA[CRS - Powered by MrX - All rights reserved ©.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

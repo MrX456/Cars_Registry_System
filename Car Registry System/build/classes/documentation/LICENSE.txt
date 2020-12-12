@@ -1,0 +1,14 @@
+---------------- CRS Version 1.0.0 ------------------
+
+************************ License ****************************
+
+ CRS is a car registration system, that allows the user
+to register some vehicles in database. The system also 
+allows the use of images of each registered vehicle.
+ You can do anything you want with this source code.
+
+
+Developed by : Mrx
+Under GPL License
+
+--------------------------------------------------

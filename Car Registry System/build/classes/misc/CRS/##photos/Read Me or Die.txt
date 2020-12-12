@@ -1,0 +1,12 @@
+------------------ Cars and photos ----------------
+
+***
+There are some cars photos and
+real specs of each one in rar 
+file those you can use to 
+test application.
+
+Feel free to search others cars
+and specs to register in system.
+
+-------------------------------------------------
